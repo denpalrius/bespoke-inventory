@@ -1,0 +1,33 @@
+.profile-arrow {
+  position: relative;
+
+  fa-icon {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+  }
+}
+
+
+.navbar-avatar {
+    border-radius: 100px;
+    margin: 0 auto;
+    transform: scale(1);
+    transition: transform .4s;
+  }
+  
+  .avatar-title {
+    padding-left: 5px;
+  }
+  
+  .dot {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    background: #00D1B2;
+    transform: scale(1);
+    transition: transform .4s;
+  }

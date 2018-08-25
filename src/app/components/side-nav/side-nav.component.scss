@@ -1,0 +1,22 @@
+@import "../../../styles/theme-defaults.scss";
+
+.menu-list {
+  .aside-icon {
+    margin-right: 12px;
+  }
+}
+
+.menu-label {
+  user-select: none;
+}
+
+a:hover.selected-menu,
+.selected-menu {
+  background-color: $primary-color;
+  color: white;
+}
+
+a:hover {
+  background-color: whitesmoke;
+  color: #363636;
+}

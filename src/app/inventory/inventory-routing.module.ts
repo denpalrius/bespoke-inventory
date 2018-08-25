@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: "", component: DashboardComponent },
   // { path: ":id", component: ManageInventoryComponent },
   { path: "receive", component: ReceiveInventoryComponent },
+  { path: "manage", component: ManageInventoryComponent },
   { path: "check-in", component: CheckInComponent },
   { path: "check-out", component: CheckOutComponent },
   { path: "add", component: AddInventoryComponent },

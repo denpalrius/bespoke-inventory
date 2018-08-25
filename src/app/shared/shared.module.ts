@@ -11,14 +11,16 @@ import {
   faPlus,
   faBars,
   faSearch,
-  faTruck
+  faTruck,
+  faAngleDown,
+  faStore
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faChartBar,
   faPlusSquare,
   faListAlt,
   faUser,
-  faCalendar
+  faBell
 } from "@fortawesome/free-regular-svg-icons";
 
 // Add an icon to the library for convenient access in other components
@@ -35,7 +37,8 @@ library.add(
   faPlusSquare,
   faListAlt,
   faUser,
-  faCalendar
+  faBell,
+  faAngleDown, faStore
 );
 
 @NgModule({

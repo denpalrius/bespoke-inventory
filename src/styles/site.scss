@@ -1,0 +1,7 @@
+@import "theme-defaults.scss";
+
+body {
+  height: calc(100vh - 52px);
+  background-color: #eff4f7;
+  color: $site-text-color;
+}
