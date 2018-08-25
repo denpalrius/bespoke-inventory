@@ -1,0 +1,56 @@
+<div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div>
+          <p>Welcome to
+            <span>Bespoke Inventory</span>
+          </p>
+          <p>
+            Please login to continue</p>
+        </div>
+
+        <div class="field">
+          <label class="label">email</label>
+          <div class="control">
+            <input class="input" type="email" placeholder="e.g. john@gmail.com" formControlName="email" required autocomplete="off">
+            <!-- <mat-error *ngIf="isFieldInvalid('userName')">
+              Please type your user name
+            </mat-error> -->
+          </div>
+        </div>
+
+        <!-- <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+          <p class="help is-danger">This email is invalid</p>
+        </div> -->
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="Password" formControlName="password" required autocomplete="off">
+            <!-- <mat-error *ngIf="isFieldInvalid('password')">
+              Please type your password
+            </mat-error> -->
+          </div>
+        </div>
+
+
+        <div class="field">
+          <p class="control">
+            <button class="button is-success">
+              Login
+            </button>
+          </p>
+        </div>
+
+      </form>
+</div>
