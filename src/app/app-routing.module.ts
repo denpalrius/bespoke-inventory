@@ -4,13 +4,16 @@ import { MainLayoutComponent } from "./components/main-layout/main-layout.compon
 import { LoginComponent } from "./components/login/login.component";
 
 const routes: Routes = [
-  { path: "", component: MainLayoutComponent },
+  { path: "*", redirectTo: "inventory", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   {
     path: "inventory",
     loadChildren: "./inventory/inventory.module#InvetoryModule"
   },
-  { path: "users", loadChildren: "./users/users.module#UsersModule" },
+  {
+    path: "users",
+    loadChildren: "./users/users.module#UsersModule"
+  },
   { path: "*", redirectTo: "", pathMatch: "full" },
   { path: "**", redirectTo: "" }
 ];

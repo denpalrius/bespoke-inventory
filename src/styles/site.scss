@@ -1,7 +1,16 @@
 @import "theme-defaults.scss";
 
-body {
-  height: calc(100vh - 52px);
-  background-color: #eff4f7;
-  color: $site-text-color;
+html {
+  overflow: auto;
+
+  body {
+    background-color: #eff4f7;
+    color: $site-text-color;
+    overflow: hidden;
+
+    .label {
+      font-weight: 400;
+      font-weight: 500;
+    }
+  }
 }

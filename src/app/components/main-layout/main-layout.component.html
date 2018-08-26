@@ -1,5 +1,13 @@
-<p>
-  Mambo youte
-</p>
-
-<!-- <router-outlet></router-outlet> -->
+<app-top-nav></app-top-nav>
+<div class="is-fullheight main-layout">
+  <div class="columns columns-wrapper">
+    <div class="column is-2 is-sidebar-menu is-hidden-mobile side-nav-wrapper">
+      <app-side-nav></app-side-nav>
+    </div>
+    <div class="column content-column">
+      <div class="content content-card">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

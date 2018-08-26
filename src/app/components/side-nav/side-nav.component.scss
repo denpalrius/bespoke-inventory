@@ -1,6 +1,10 @@
 @import "../../../styles/theme-defaults.scss";
 
+
+
 .menu-list {
+  overflow: auto;
+
   .aside-icon {
     margin-right: 12px;
   }

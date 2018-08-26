@@ -4,7 +4,7 @@
   </p>
   <ul class="menu-list">
     <li>
-      <a routerLink="/inventory" (click)="onMenuSelect('dashboard')" [class.selected-menu]="selectedMenu === 'dashboard'">
+      <a (click)="onMenuSelect('inventory')" [class.selected-menu]="selectedMenu === 'inventory'">
         <span class="icon">
           <fa-icon class="aside-icon" [icon]="['far', 'chart-bar']" aria-hidden="true"></fa-icon>
         </span>
@@ -12,7 +12,7 @@
       </a>
     </li>
     <li>
-      <a routerLink="/inventory/receive" (click)="onMenuSelect('receive')" [class.selected-menu]="selectedMenu === 'receive'">
+      <a (click)="onMenuSelect('inventory/receive')" [class.selected-menu]="selectedMenu === 'inventory/receive'">
         <span class="icon">
           <fa-icon class="aside-icon" [icon]="['far', 'plus-square']" aria-hidden="true"></fa-icon>
         </span>
@@ -20,7 +20,7 @@
       </a>
     </li>
     <li>
-      <a routerLink="/inventory/manage" (click)="onMenuSelect('manage')" [class.selected-menu]="selectedMenu === 'manage'">
+      <a (click)="onMenuSelect('inventory/manage')" [class.selected-menu]="selectedMenu === 'inventory/manage'">
         <span class="icon">
           <fa-icon class="aside-icon" [icon]="['far', 'list-alt']" aria-hidden="true"></fa-icon>
         </span>
@@ -28,7 +28,7 @@
       </a>
       <ul>
         <li>
-          <a routerLink="/inventory/check-in" (click)="onMenuSelect('check-in')" [class.selected-menu]="selectedMenu === 'check-in'">
+          <a (click)="onMenuSelect('inventory/check-in')" [class.selected-menu]="selectedMenu === 'inventory/check-in'">
             <span class="icon">
               <fa-icon class="aside-icon" [icon]="['fas', 'cart-plus']" aria-hidden="true"></fa-icon>
             </span>
@@ -36,7 +36,7 @@
           </a>
         </li>
         <li>
-          <a routerLink="/inventory/check-out" (click)="onMenuSelect('check-out')" [class.selected-menu]="selectedMenu === 'check-out'">
+          <a (click)="onMenuSelect('inventory/check-out')" [class.selected-menu]="selectedMenu === 'inventory/check-out'">
             <span class="icon">
               <fa-icon class="aside-icon" [icon]="['fas', 'sign-out-alt']" aria-hidden="true"></fa-icon>
             </span>
@@ -44,7 +44,7 @@
           </a>
         </li>
         <li>
-          <a routerLink="/inventory/add" (click)="onMenuSelect('add-inventory')" [class.selected-menu]="selectedMenu === 'add-inventory'">
+          <a r (click)="onMenuSelect('inventory/add')" [class.selected-menu]="selectedMenu === 'inventory/add'">
             <span class="icon">
               <fa-icon class="aside-icon" [icon]="['fas', 'plus']" aria-hidden="true"></fa-icon>
             </span>
@@ -59,7 +59,7 @@
   </p>
   <ul class="menu-list">
     <li>
-      <a routerLink="/inventory/suppliers" (click)="onMenuSelect('suppliers')" [class.selected-menu]="selectedMenu === 'suppliers'">
+      <a (click)="onMenuSelect('inventory/suppliers')" [class.selected-menu]="selectedMenu === 'inventory/suppliers'">
         <span class="icon">
           <fa-icon class="aside-icon" [icon]="['fas', 'truck']" aria-hidden="true"></fa-icon>
         </span>
@@ -67,7 +67,7 @@
       </a>
     </li>
     <li>
-      <a routerLink="/inventory/stores" (click)="onMenuSelect('stores')" [class.selected-menu]="selectedMenu === 'stores'">
+      <a (click)="onMenuSelect('inventory/stores')" [class.selected-menu]="selectedMenu === 'inventory/stores'">
         <span class="icon">
           <fa-icon class="aside-icon" [icon]="['fas', 'store']" aria-hidden="true"></fa-icon>
         </span>

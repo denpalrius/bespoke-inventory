@@ -12,6 +12,8 @@ import { CheckOutComponent } from "./components/manage-inventory/check-out/check
 import { AddInventoryComponent } from "./components/manage-inventory/add-inventory/add-inventory.component";
 import { ManageSuppliersComponent } from "./components/manage-suppliers/manage-suppliers.component";
 import { ManageStoresComponent } from "./components/manage-stores/manage-stores.component";
+import { InventoryService } from "./services/inventory.service";
+import { BooksService } from "./services/books.service";
 
 @NgModule({
   imports: [CommonModule, InvetoryRoutingModule, SharedModule],
@@ -24,6 +26,7 @@ import { ManageStoresComponent } from "./components/manage-stores/manage-stores.
     ManageSuppliersComponent,
     ManageStoresComponent,
     AddInventoryComponent
-  ]
+  ],
+  providers: [InventoryService, BooksService]
 })
 export class InvetoryModule {}

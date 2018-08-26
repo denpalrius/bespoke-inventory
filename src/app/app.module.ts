@@ -11,6 +11,11 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { MainLayoutComponent } from "./components/main-layout/main-layout.component";
 import { SharedModule } from "./shared/shared.module";
 import { LoginComponent } from "./components/login/login.component";
+import { HttpClientModule } from "@angular/common/http";
+
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "./services/in-memory-data.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +27,17 @@ import { LoginComponent } from "./components/login/login.component";
     LoginComponent,
     MainLayoutComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false
+    }),
+    SharedModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
