@@ -1,3 +1,140 @@
-<p>
-  check-in works!
-</p>
+<div>
+    <h2>Add inventory item</h2>
+    <hr>
+  
+    <div class="columns">
+      <div class="column is-half">
+        <form [formGroup]="newBookForm" (ngSubmit)="onSubmit()">
+          <div class="field">
+            <label class="label">Title</label>
+            <div class="control">
+              <input class="input" [class.is-danger]="newBookForm.controls['name']?.errors && newBookForm.controls['name']?.dirty" type="text"
+                placeholder="Book name" formControlName="name" required>
+            </div>
+            <p *ngIf="!(newBookForm.controls['name']?.errors && newBookForm.controls['name']?.dirty)" class="help">Provide
+              a title for the book</p>
+            <p *ngIf="newBookForm.controls['name']?.errors && newBookForm.controls['name']?.dirty" class="help is-danger">A
+              valid name is required</p>
+          </div>
+  
+          <div class="field">
+            <label class="label">Description</label>
+            <div class="control">
+              <textarea class="textarea" rows="2" placeholder="Book description" formControlName="description"></textarea>
+            </div>
+            <p class="help">Provide a description for the book</p>
+          </div>
+  
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Type</label>
+                <div class="control is-expanded">
+                  <div class="select">
+                    <select required formControlName="typeId">
+                      <option *ngFor="let type of bookTypes" [value]="type.id">
+                        {{ type.name }}
+                      </option>
+                    </select>
+                    <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">Provide a title
+                      for the book
+                    </p>
+                    <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">A valid name
+                      is required
+                    </p>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="column">
+              <div class="field">
+                <label class="label">Secondary type</label>
+                <div class="control is-expanded">
+                  <div class="select">
+                    <select required formControlName="typeId">
+                      <option *ngFor="let type of bookTypes" [value]="type.id">
+                        {{ type.name }}
+                      </option>
+                    </select>
+                    <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">Provide a title
+                      for the book
+                    </p>
+                    <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">A valid name
+                      is required
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+          <br>
+  
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Author</label>
+                <div class="control is-expanded">
+                  <div class="select">
+                    <select required formControlName="typeId">
+                      <option *ngFor="let type of bookTypes" [value]="type.id">
+                        {{ type.name }}
+                      </option>
+                    </select>
+                    <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">Provide a title
+                      for the book
+                    </p>
+                    <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">A valid name
+                      is required
+                    </p>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+  
+            <div class="column">
+              <div class="field">
+                <label class="label">Pubisher</label>
+                <div class="control is-expanded">
+                  <div class="select">
+                    <select required formControlName="typeId">
+                      <option *ngFor="let type of bookTypes" [value]="type.id">
+                        {{ type.name }}
+                      </option>
+                    </select>
+                    <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">Provide a title
+                      for the book
+                    </p>
+                    <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">A valid name
+                      is required
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+  
+          <div class="field">
+            <label class="label">Comments</label>
+            <div class="control">
+              <textarea class="textarea" rows="2" placeholder="extra comments..." formControlName="comments"></textarea>
+            </div>
+            <p class="help">Provide any extra information about this item</p>
+          </div>
+          <br>
+  
+          <div class="field">
+            <p class="control is-rounded">
+              <button type="submit" [disabled]="!newBookForm.valid" class="button is-primary is-rounded submit-button">Add</button>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

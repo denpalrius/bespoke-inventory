@@ -3,7 +3,7 @@
   <hr>
 
   <div class="columns">
-    <div class="column">
+    <div class="column is-half">
       <form [formGroup]="newBookForm" (ngSubmit)="onSubmit()">
         <div class="field">
           <label class="label">Title</label>
@@ -24,25 +24,7 @@
           </div>
           <p class="help">Provide a description for the book</p>
         </div>
-        <div class="field">
-            <label class="label">Type</label>
-            <div class="control is-expanded">
-              <div class="select">
-                <select required formControlName="typeId">
-                  <option *ngFor="let type of bookTypes" [value]="type.id">
-                    {{ type.name }}
-                  </option>
-                </select>
-                <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">
-                  Provide a title for the book
-                </p>
-                <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">
-                  A valid name is required
-                </p>
-              </div>
-            </div>
-          </div>
-          
+
         <div class="columns">
           <div class="column">
             <div class="field">
@@ -54,11 +36,33 @@
                       {{ type.name }}
                     </option>
                   </select>
-                  <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">
-                    Provide a title for the book
+                  <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">Provide a type
+                    for the book
                   </p>
-                  <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">
-                    A valid name is required
+                  <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">A valid type
+                    is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="column">
+            <div class="field">
+              <label class="label">Secondary type</label>
+              <div class="control is-expanded">
+                <div class="select">
+                  <select required formControlName="secondaryType">
+                    <option *ngFor="let secondaryType of bookSecondaryTypes" [value]="secondaryType.id">
+                      {{ secondaryType.name }}
+                    </option>
+                  </select>
+                  <p *ngIf="!(newBookForm.controls['secondaryType']?.errors && newBookForm.dirty)" class="help">
+                    Provide a secondary type for the book
+                  </p>
+                  <p *ngIf="newBookForm.controls['secondaryType']?.errors && newBookForm.dirty" class="help is-danger">
+                    A valid secondary type is required
                   </p>
                 </div>
               </div>
@@ -66,7 +70,6 @@
           </div>
 
         </div>
-
 
         <br>
 
@@ -76,50 +79,46 @@
               <label class="label">Author</label>
               <div class="control is-expanded">
                 <div class="select">
-                  <select required formControlName="typeId">
-                    <option *ngFor="let type of bookTypes" [value]="type.id">
-                      {{ type.name }}
+                  <select required formControlName="authorId">
+                    <option *ngFor="let author of authors" [value]="author.id">
+                      {{ author.name }}
                     </option>
                   </select>
-                  <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">Provide a title
-                    for the book
-                  </p>
-                  <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">A valid name
-                    is required
+                  <p *ngIf="!(newBookForm.controls['authorId']?.errors && newBookForm.dirty)" class="help">
+                      The book's author
+                    </p>
+                  <p *ngIf="newBookForm.controls['authorId']?.errors && newBookForm.dirty" class="help is-danger">
+                    An author is required
                   </p>
                 </div>
               </div>
             </div>
 
           </div>
+
           <div class="column">
             <div class="field">
               <label class="label">Pubisher</label>
               <div class="control is-expanded">
                 <div class="select">
-                  <select required formControlName="typeId">
-                    <option *ngFor="let type of bookTypes" [value]="type.id">
-                      {{ type.name }}
+                  <select required formControlName="publisherId">
+                    <option *ngFor="let publisher of publishers" [value]="publisher.id">
+                      {{ publisher.name }}
                     </option>
                   </select>
-                  <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">Provide a title
-                    for the book
+                  <p *ngIf="!(newBookForm.controls['publisherId']?.errors && newBookForm.dirty)" class="help">
+                    The book's publisher
                   </p>
-                  <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">A valid name
-                    is required
+                  <p *ngIf="newBookForm.controls['publisherId']?.errors && newBookForm.dirty" class="help is-danger">
+                    A publisher is required
                   </p>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
-        <div class="field">
-          <label class="label">Comments</label>
-          <div class="control">
-            <textarea class="textarea" rows="2" placeholder="extra comments..." formControlName="comments"></textarea>
-          </div>
-          <p class="help">Provide any extra information about this item</p>
-        </div>
+
         <br>
 
         <div class="field">

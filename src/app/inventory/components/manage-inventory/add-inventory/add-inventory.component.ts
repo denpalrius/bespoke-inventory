@@ -5,6 +5,10 @@ import { BooksService } from "../../../services/books.service";
 import { Book } from "../../../models/book";
 import { v4 as uuid } from "uuid";
 import { BookType } from "../../../models/book-type";
+import { Publisher } from "../../../models/publisher";
+import { Author } from "../../../models/author";
+import { BookSecondaryType } from "../../../models/book-secondary-type";
+import { Subscription, Observable, combineLatest } from "rxjs";
 
 @Component({
   selector: "app-add-inventory",
@@ -12,9 +16,19 @@ import { BookType } from "../../../models/book-type";
   styleUrls: ["./add-inventory.component.scss"]
 })
 export class AddInventoryComponent implements OnInit {
+  subscription: Subscription;
+
+  bookTypes$: Observable<Array<BookType>>;
+  bookSecondaryTypes$: Observable<Array<BookSecondaryType>>;
+  authors$: Observable<Array<Author>>;
+  publishers$: Observable<Array<Publisher>>;
+
   bookTypes: Array<BookType>;
+  bookSecondaryTypes: Array<BookSecondaryType>;
+  authors: Array<Author>;
+  publishers: Array<Publisher>;
+
   newBookForm: FormGroup;
-  newBook: Book;
 
   constructor(
     private readonly booksService: BooksService,
@@ -22,19 +36,20 @@ export class AddInventoryComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly fb: FormBuilder
   ) {
-    this.newBook = new Book();
     this.bookTypes = new Array<BookType>();
+    this.bookSecondaryTypes = new Array<BookSecondaryType>();
+    this.authors = new Array<Author>();
+    this.publishers = new Array<Publisher>();
+
+    this.bookTypes$ = this.booksService.getTypes();
+    this.bookSecondaryTypes$ = this.booksService.getsecondaryTypes();
+    this.authors$ = this.booksService.getAuthors();
+    this.publishers$ = this.booksService.getPublishers();
   }
 
   ngOnInit() {
     this.intializeNewBookForm();
-
-    this.newBookForm.valueChanges.subscribe(value => {
-      console.log(value);
-      // this.newBook = { ...value };
-    });
-
-    this.loadBookTypes();
+    this.initializeSelections();
   }
 
   private intializeNewBookForm() {
@@ -43,17 +58,23 @@ export class AddInventoryComponent implements OnInit {
       name: null,
       description: null,
       typeId: null,
+      secondaryType: null,
       authorId: null,
-      publisherId: null,
-      comments: null
+      publisherId: null
     });
   }
 
-  loadBookTypes() {
-    this.booksService.getTypes().subscribe(types => {
-      if (types) {
-        this.bookTypes = [...types];
-      }
+  private initializeSelections() {
+    this.subscription = combineLatest(
+      this.bookTypes$,
+      this.bookSecondaryTypes$,
+      this.authors$,
+      this.publishers$
+    ).subscribe(([_bookTypes, _bookSecondaryTypes, _authros, _publishers]) => {
+      this.bookTypes = _bookTypes;
+      this.bookSecondaryTypes = _bookSecondaryTypes;
+      this.authors = _authros;
+      this.publishers = _publishers;
     });
   }
 
@@ -71,7 +92,6 @@ export class AddInventoryComponent implements OnInit {
       .subscribe(response => {
         console.log("response", response);
         if (response) {
-          this.newBook = new Book();
           this.newBookForm.reset();
         }
       });
