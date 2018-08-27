@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
+import { AgGridModule } from "ag-grid-angular";
+
 import { InvetoryRoutingModule } from "./inventory-routing.module";
 import { SharedModule } from "../shared/shared.module";
 
@@ -16,7 +18,12 @@ import { InventoryService } from "./services/inventory.service";
 import { BooksService } from "./services/books.service";
 
 @NgModule({
-  imports: [CommonModule, InvetoryRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    InvetoryRoutingModule,
+    AgGridModule.withComponents([ManageInventoryComponent]),
+    SharedModule
+  ],
   declarations: [
     DashboardComponent,
     ReceiveInventoryComponent,

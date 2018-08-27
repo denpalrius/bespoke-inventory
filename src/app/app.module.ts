@@ -13,6 +13,8 @@ import { SharedModule } from "./shared/shared.module";
 import { LoginComponent } from "./components/login/login.component";
 import { HttpClientModule } from "@angular/common/http";
 
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./services/in-memory-data.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -29,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -36,7 +39,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false
     }),
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

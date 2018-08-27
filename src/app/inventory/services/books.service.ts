@@ -20,8 +20,7 @@ export class BooksService extends BaseService {
 
   getAllBooks(): Observable<Array<Book>> {
     return this.http.get<any>(`${this.api.books}`, this.httpOptions).pipe(
-      map(bookResponse => new Array<Book>(bookResponse)),
-      tap((books: Array<Book>) => console.log(`all books: ${books}`)),
+      map(_allbooks => new Array<Book>(..._allbooks)),
       catchError(error => {
         return this.catchErrorDetailed(error, "Failed to load");
       })

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { MatTable, MatTableModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -38,12 +39,19 @@ library.add(
   faListAlt,
   faUser,
   faBell,
-  faAngleDown, faStore
+  faAngleDown,
+  faStore
 );
 
 @NgModule({
-  imports: [CommonModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   declarations: [],
-  exports: [FontAwesomeModule, FormsModule, ReactiveFormsModule]
+  exports: [FontAwesomeModule, MatTableModule, FormsModule, ReactiveFormsModule]
 })
 export class SharedModule {}

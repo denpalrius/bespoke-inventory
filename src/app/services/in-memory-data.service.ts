@@ -9,8 +9,9 @@ export class InMemoryDataService implements InMemoryDbService {
     const books: Array<Inventory> = [
       new Book({
         id: uuid(),
-        name: "Te river Between",
-        description: "description",
+        name: "The river Between",
+        description: "Best novel",
+        typeId: uuid(),
         authorId: uuid(),
         publisherId: uuid(),
         categoryId: uuid(),
@@ -18,8 +19,9 @@ export class InMemoryDataService implements InMemoryDbService {
       }),
       new Book({
         id: uuid(),
-        name: "Te river Between",
-        description: "description",
+        name: "ESC Study Bible",
+        description: "Excellent study Bible",
+        typeId: uuid(),
         authorId: uuid(),
         publisherId: uuid(),
         categoryId: uuid(),
@@ -27,8 +29,9 @@ export class InMemoryDataService implements InMemoryDbService {
       }),
       new Book({
         id: uuid(),
-        name: "Te river Between",
-        description: "description",
+        name: "Membership",
+        description: "A book on membership",
+        typeId: uuid(),
         authorId: uuid(),
         publisherId: uuid(),
         categoryId: uuid(),
@@ -36,8 +39,9 @@ export class InMemoryDataService implements InMemoryDbService {
       }),
       new Book({
         id: uuid(),
-        name: "Te river Between",
+        name: "The river Between",
         description: "description",
+        typeId: uuid(),
         authorId: uuid(),
         publisherId: uuid(),
         categoryId: uuid(),
@@ -45,8 +49,9 @@ export class InMemoryDataService implements InMemoryDbService {
       }),
       new Book({
         id: uuid(),
-        name: "Te river Between",
-        description: "description",
+        name: "Discipleship ",
+        description: "great book",
+        typeId: uuid(),
         authorId: uuid(),
         publisherId: uuid(),
         categoryId: uuid(),

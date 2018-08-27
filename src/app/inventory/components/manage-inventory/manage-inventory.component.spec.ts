@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ManageInventoryComponent } from './manage-inventory.component';
+import { ManageInventoryComponent } from "./manage-inventory.component";
 
-describe('ManageInventoryComponent', () => {
+describe("ManageInventoryComponent", () => {
   let component: ManageInventoryComponent;
   let fixture: ComponentFixture<ManageInventoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageInventoryComponent ]
-    })
-    .compileComponents();
+      declarations: [ManageInventoryComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ManageInventoryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
