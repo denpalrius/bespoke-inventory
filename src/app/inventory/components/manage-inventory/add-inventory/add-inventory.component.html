@@ -36,10 +36,10 @@
                       {{ type.name }}
                     </option>
                   </select>
-                  <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.dirty)" class="help">Provide a type
+                  <p *ngIf="!(newBookForm.controls['typeId']?.errors && newBookForm.controls['typeId']?.dirty)" class="help">Provide a type
                     for the book
                   </p>
-                  <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.dirty" class="help is-danger">A valid type
+                  <p *ngIf="newBookForm.controls['typeId']?.errors && newBookForm.controls['typeId']?.dirty" class="help is-danger">A valid type
                     is required
                   </p>
                 </div>
@@ -58,10 +58,10 @@
                       {{ secondaryType.name }}
                     </option>
                   </select>
-                  <p *ngIf="!(newBookForm.controls['secondaryType']?.errors && newBookForm.dirty)" class="help">
+                  <p *ngIf="!(newBookForm.controls['secondaryType']?.errors && newBookForm.controls['secondaryType']?.dirty)" class="help">
                     Provide a secondary type for the book
                   </p>
-                  <p *ngIf="newBookForm.controls['secondaryType']?.errors && newBookForm.dirty" class="help is-danger">
+                  <p *ngIf="newBookForm.controls['secondaryType']?.errors && newBookForm.controls['secondaryType']?.dirty" class="help is-danger">
                     A valid secondary type is required
                   </p>
                 </div>
@@ -84,10 +84,10 @@
                       {{ author.name }}
                     </option>
                   </select>
-                  <p *ngIf="!(newBookForm.controls['authorId']?.errors && newBookForm.dirty)" class="help">
+                  <p *ngIf="!(newBookForm.controls['authorId']?.errors &&  newBookForm.controls['authorId']?.dirty)" class="help">
                       The book's author
                     </p>
-                  <p *ngIf="newBookForm.controls['authorId']?.errors && newBookForm.dirty" class="help is-danger">
+                  <p *ngIf="newBookForm.controls['authorId']?.errors &&  newBookForm.controls['authorId']?.dirty" class="help is-danger">
                     An author is required
                   </p>
                 </div>
@@ -106,10 +106,10 @@
                       {{ publisher.name }}
                     </option>
                   </select>
-                  <p *ngIf="!(newBookForm.controls['publisherId']?.errors && newBookForm.dirty)" class="help">
+                  <p *ngIf="!(newBookForm.controls['publisherId']?.errors && newBookForm.controls['publisherId']?.dirty)" class="help">
                     The book's publisher
                   </p>
-                  <p *ngIf="newBookForm.controls['publisherId']?.errors && newBookForm.dirty" class="help is-danger">
+                  <p *ngIf="newBookForm.controls['publisherId']?.errors && newBookForm.controls['publisherId']?.dirty" class="help is-danger">
                     A publisher is required
                   </p>
                 </div>

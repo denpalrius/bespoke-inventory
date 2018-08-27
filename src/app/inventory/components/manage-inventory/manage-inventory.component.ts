@@ -1,25 +1,18 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { Subscription, Observable } from "rxjs";
+import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
+import { Observable, BehaviorSubject } from "rxjs";
 import { Book } from "../../models/book";
 import { BooksService } from "../../services/books.service";
-import {
-  MatTable,
-  MatTableDataSource,
-  MatPaginator,
-  MatSort
-} from "@angular/material";
+import { MatTable, MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 import { SelectionModel } from "@angular/cdk/collections";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-manage-inventory",
   templateUrl: "./manage-inventory.component.html",
   styleUrls: ["./manage-inventory.component.scss"]
 })
-export class ManageInventoryComponent implements OnInit {
-  subscription: Subscription;
-
+export class ManageInventoryComponent implements OnInit, OnDestroy {
   books$: Observable<Array<Book>>;
-  books: Array<Book>;
 
   rowData: any;
   columnDefs: any;
@@ -38,28 +31,35 @@ export class ManageInventoryComponent implements OnInit {
   @ViewChild(MatSort)
   sort: MatSort;
 
-  constructor(private readonly booksService: BooksService) {
+  isInventoryLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+
+  constructor(private readonly booksService: BooksService, private route: ActivatedRoute, private router: Router) {
     this.books$ = this.booksService.getAllBooks();
-    this.books = new Array<Book>();
     this.booksDataSource = new MatTableDataSource<Book>();
   }
 
   ngOnInit() {
-    this.selection = new SelectionModel<Book>(
-      this.allowMultiSelect,
-      this.initialSelection
-    );
+    this.selection = new SelectionModel<Book>(this.allowMultiSelect, this.initialSelection);
 
     this.displayedColumns = ["select", "id", "name", "description", "typeId"];
     this.initializeMaterialtable();
   }
 
+  ngOnDestroy() {}
+
+  navigateTo(_route: string) {
+    if (_route) {
+      this.router.navigate([`../${_route}`], { relativeTo: this.route });
+    }
+  }
+
   initializeMaterialtable() {
     this.books$.subscribe(_books => {
-      console.log(_books);
       this.booksDataSource = new MatTableDataSource<Book>(_books);
       this.booksDataSource.paginator = this.paginator;
       this.booksDataSource.sort = this.sort;
+
+      this.isInventoryLoading$.next(false);
     });
   }
 

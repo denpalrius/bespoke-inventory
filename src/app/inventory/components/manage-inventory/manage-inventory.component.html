@@ -1,6 +1,24 @@
-<h2> Manage Inventory</h2>
+<div class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <h2> Manage Inventory</h2>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <a (click)="navigateTo('add')" class="button is-primary is-outlined">
+        <span class="icon is-medium">
+          <fa-icon class="aside-icon" [icon]="['fas', 'plus']"></fa-icon>
+        </span>
+        <span>Add Item</span>
+      </a>
+    </div>
+  </div>
+</div>
 
-<div>
+<mat-progress-bar *ngIf="(isInventoryLoading$ | async)" mode="indeterminate"></mat-progress-bar>
+
+<div *ngIf="!(isInventoryLoading$ | async)">
   <div class="field">
     <div class="control">
       <input (keyup)="applyFilter($event.target.value)" class="input" type="text" placeholder="Search item">

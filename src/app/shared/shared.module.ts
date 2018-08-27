@@ -4,7 +4,8 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatProgressBarModule
 } from "@angular/material";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -52,7 +53,8 @@ const materialModules = [
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatProgressBarModule
 ];
 @NgModule({
   imports: [
