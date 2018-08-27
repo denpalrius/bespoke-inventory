@@ -1,7 +1,11 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MatTable, MatTableModule } from "@angular/material";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatCheckboxModule
+} from "@angular/material";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -23,6 +27,7 @@ import {
   faUser,
   faBell
 } from "@fortawesome/free-regular-svg-icons";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 // Add an icon to the library for convenient access in other components
 library.add(
@@ -43,15 +48,32 @@ library.add(
   faStore
 );
 
+const materialModules = [
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatCheckboxModule
+];
 @NgModule({
   imports: [
     CommonModule,
-    MatTableModule,
-    FontAwesomeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCheckboxModule
   ],
   declarations: [],
-  exports: [FontAwesomeModule, MatTableModule, FormsModule, ReactiveFormsModule]
+  exports: [
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCheckboxModule
+  ]
 })
 export class SharedModule {}

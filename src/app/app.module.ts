@@ -17,7 +17,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./services/in-memory-data.service";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -33,13 +32,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false
     }),
-    SharedModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { GridOptions } from "ag-grid";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { MatSortModule } from "@angular/material";
 import { Subscription, Observable } from "rxjs";
 import { Book } from "../../models/book";
 import { BooksService } from "../../services/books.service";
+import {
+  MatTable,
+  MatTableDataSource,
+  MatPaginator,
+  MatSort
+} from "@angular/material";
 
 @Component({
   selector: "app-manage-inventory",
@@ -19,23 +25,37 @@ export class ManageInventoryComponent implements OnInit {
   columnDefs: any;
 
   displayedColumns: string[];
+  booksDataSource: MatTableDataSource<Book>;
+
+  @ViewChild(MatTable)
+  table: MatTable<any>;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
   constructor(private readonly booksService: BooksService) {
     this.books$ = this.booksService.getAllBooks();
     this.books = new Array<Book>();
+    this.booksDataSource = new MatTableDataSource<Book>();
   }
 
   ngOnInit() {
     this.displayedColumns = ["id", "name", "description", "typeId"];
-
-    this.initializeGrid();
     this.initializeMaterialtable();
   }
 
   initializeMaterialtable() {
-    // this.books$.subscribe(_books => {
-    //   console.log(this.books);
-    // });
+    this.books$.subscribe(_books => {
+      console.log(_books);
+      this.booksDataSource = new MatTableDataSource<Book>(_books);
+      this.booksDataSource.paginator = this.paginator;
+      this.booksDataSource.sort = this.sort;
+    });
+  }
+
+  applyFilter(filterValue: string) {
+    this.booksDataSource.filter = filterValue.trim().toLowerCase();
   }
 
   initializeGrid() {
