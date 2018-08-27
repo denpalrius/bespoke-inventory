@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { MatSortModule } from "@angular/material";
 import { Subscription, Observable } from "rxjs";
 import { Book } from "../../models/book";
 import { BooksService } from "../../services/books.service";
@@ -9,6 +8,7 @@ import {
   MatPaginator,
   MatSort
 } from "@angular/material";
+import { SelectionModel } from "@angular/cdk/collections";
 
 @Component({
   selector: "app-manage-inventory",
@@ -24,8 +24,12 @@ export class ManageInventoryComponent implements OnInit {
   rowData: any;
   columnDefs: any;
 
-  displayedColumns: string[];
   booksDataSource: MatTableDataSource<Book>;
+  displayedColumns: string[];
+
+  initialSelection = [];
+  allowMultiSelect = true;
+  selection: SelectionModel<Book>;
 
   @ViewChild(MatTable)
   table: MatTable<any>;
@@ -41,7 +45,12 @@ export class ManageInventoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.displayedColumns = ["id", "name", "description", "typeId"];
+    this.selection = new SelectionModel<Book>(
+      this.allowMultiSelect,
+      this.initialSelection
+    );
+
+    this.displayedColumns = ["select", "id", "name", "description", "typeId"];
     this.initializeMaterialtable();
   }
 
@@ -56,6 +65,20 @@ export class ManageInventoryComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.booksDataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.booksDataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.booksDataSource.data.forEach(row => this.selection.select(row));
   }
 
   initializeGrid() {

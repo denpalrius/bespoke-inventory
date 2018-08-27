@@ -60,20 +60,14 @@ const materialModules = [
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatCheckboxModule
+    ...materialModules
   ],
   declarations: [],
   exports: [
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatCheckboxModule
+    ...materialModules
   ]
 })
 export class SharedModule {}

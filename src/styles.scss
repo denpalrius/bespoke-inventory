@@ -1,13 +1,5 @@
-// Material themes
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-// Bulma Styles
-@import "styles/bulma-theme.scss";
-
-// Styles for AG grid
-@import "~ag-grid/dist/styles/ag-grid.css";
-@import "~ag-grid/dist/styles/ag-theme-balham.css";
+// Custom Material theme
+@import "styles/material-theme.scss";
 
 // My styles
-@import "styles/theme.scss";
 @import "styles/site.scss";
