@@ -1,4 +1,9 @@
 version: 2
+machine:
+  node:
+    # You can configure other node version here if needed
+    version: 8.11.4
+
 jobs:
   # The build job
   build:
@@ -27,9 +32,9 @@ jobs:
           paths:
             - node_modules
       # Lint the source code
-      - run:
-          name: Linting
-          command: npm run lint
+      # - run:
+      #     name: Linting
+      #     command: npm run lint
       # Test the source code
       - run:
           name: Testing
