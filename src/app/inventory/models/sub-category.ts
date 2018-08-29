@@ -7,9 +7,9 @@ export class SubCategory {
     }
   }
 
-  id!: string;
-  name!: string;
-  parentCategoryId!: string;
+  id: string;
+  name: string;
+  parentCategoryId: string;
 }
 
 export class ISubCategory extends SubCategory {
@@ -20,5 +20,5 @@ export class ISubCategory extends SubCategory {
     }
   }
 
-  parentCategory!: Category;
+  parentCategory: Category;
 }

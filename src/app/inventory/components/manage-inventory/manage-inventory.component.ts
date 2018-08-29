@@ -41,7 +41,7 @@ export class ManageInventoryComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.selection = new SelectionModel<Book>(this.allowMultiSelect, this.initialSelection);
 
-    this.displayedColumns = ["select", "id", "name", "description", "typeId"];
+    this.displayedColumns = ["select", "id", "name", "description", "typeId", "actions"];
     this.initializeMaterialtable();
   }
 
@@ -58,6 +58,8 @@ export class ManageInventoryComponent implements OnInit, OnDestroy {
       this.booksDataSource = new MatTableDataSource<Book>(_books);
       this.booksDataSource.paginator = this.paginator;
       this.booksDataSource.sort = this.sort;
+
+      console.log(this.booksDataSource.sort);
 
       this.isInventoryLoading$.next(false);
     });
@@ -81,42 +83,7 @@ export class ManageInventoryComponent implements OnInit, OnDestroy {
       : this.booksDataSource.data.forEach(row => this.selection.select(row));
   }
 
-  initializeGrid() {
-    const fieldWidth = 120;
-
-    this.columnDefs = [
-      {
-        headerName: "ID",
-        field: "id",
-        width: fieldWidth
-      },
-      {
-        headerName: "Name",
-        field: "name",
-        width: 150
-      },
-      {
-        headerName: "Description",
-        field: "description",
-        width: 150
-      },
-      {
-        headerName: "Type",
-        field: "typeId",
-        width: fieldWidth
-      },
-      {
-        headerName: "Author",
-        field: "authorId",
-        width: fieldWidth
-      },
-      {
-        headerName: "Publisher",
-        field: "publisherId",
-        width: fieldWidth
-      }
-    ];
-
-    this.rowData = this.books$;
+  onRowClicked(row) {
+    console.log("Row clicked: ", row);
   }
 }

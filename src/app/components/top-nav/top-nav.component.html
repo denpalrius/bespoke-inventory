@@ -1,50 +1,60 @@
 <nav class="navbar has-shadow is-fixed-top" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item">
-            <span class="icon">
-                <fa-icon [icon]="['fas', 'bars']" size="lg"></fa-icon>
-            </span>
-        </a>
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <span class="icon">
+        <fa-icon [icon]="['fas', 'bars']" size="lg"></fa-icon>
+      </span>
+    </a>
 
-        <a class="navbar-item" routerLink="">
-            <img src="../../../assets/images/lean-logo.jpg" alt="">
-        </a>
-        <div class="navbar-burger burger" data-target="mainNavbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+    <a class="navbar-item" routerLink="">
+      <img src="../../../assets/images/lean-logo.jpg" alt="">
+    </a>
+    <div class="navbar-burger burger" data-target="mainNavbarMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+  <div id="mainNavbarMenu" class="navbar-menu">
+    <div class="navbar-start">
 
     </div>
 
-    <div id="mainNavbarMenu" class="navbar-menu">
-        <div class="navbar-start">
-
-        </div>
-
-        <div class="navbar-end">
-            <div class="navbar-item is-pulled-left">
-                <p class="control has-icons-left">
-                    <input class="input  is-rounded" type="search" placeholder="search">
-                    <span class="icon is-small is-left">
-                        <fa-icon [icon]="['fas', 'search']" aria-hidden="true"></fa-icon>
-                    </span>
-                </p>
-            </div>
-            <a class="navbar-item">
-                <span class="icon">
-                    <fa-icon [icon]="['far', 'bell']" size="lg" aria-hidden="true"></fa-icon>
-                </span>
-                <span class="dot"></span>
-            </a>
-        </div>
-
-        <a class="navbar-item">
-            <img class="navbar-avatar" src="https://avatars1.githubusercontent.com/u/2971971" alt="">
-            <span class="avatar-title">Dennis Riungu</span>
-            <span class="icon profile-arrow">
-                <fa-icon [icon]="['fas', 'angle-down']" aria-hidden="true"></fa-icon>
-            </span>
-        </a>
+    <div class="navbar-end">
+      <div class="navbar-item is-pulled-left">
+        <p class="control has-icons-left">
+          <input class="input  is-rounded" type="search" placeholder="search">
+          <span class="icon is-small is-left">
+            <fa-icon [icon]="['fas', 'search']" aria-hidden="true"></fa-icon>
+          </span>
+        </p>
+      </div>
+      <a class="navbar-item">
+        <span class="icon">
+          <fa-icon [icon]="['far', 'bell']" size="lg" aria-hidden="true"></fa-icon>
+        </span>
+        <span class="dot"></span>
+      </a>
     </div>
+
+    <div class="navbar-item has-dropdown is-hoverable" role="menu">
+      <div class="navbar-avatar-wrapper">
+        <img class="navbar-avatar" src="https://avatars1.githubusercontent.com/u/2971971" alt="">
+      </div>
+      <span class="navbar-link avatar-title">Dennis Riungu</span>
+      <div id="moreDropdown" class="navbar-dropdown ">
+        <a class="navbar-item">
+          <fa-icon [icon]="['far', 'bell']" size="lg" aria-hidden="true"></fa-icon>
+          <a class="dropdown-item"> Profile </a>
+        </a>
+        <hr class="dropdown-divider">
+        <a class="navbar-item">
+          <fa-icon [icon]="['far', 'bell']" size="lg" aria-hidden="true"></fa-icon>
+          <a  class="dropdown-item"> Settings </a>
+        </a>
+      </div>
+    </div>
+  </div>
 </nav>

@@ -1,33 +1,29 @@
-.profile-arrow {
-  position: relative;
+.navbar-avatar-wrapper {
+  margin: 0px;
+  line-height: 52px;
+  padding: 0px 5px;
 
-  fa-icon {
-    position: absolute;
-    display: flex;
-    bottom: 0;
+  .navbar-avatar {
+    border-radius: 100px;
+    margin: 0 auto;
+    vertical-align: middle;
+    transform: scale(1);
+    transition: transform 0.4s;
   }
 }
 
+.avatar-title {
+  padding-left: 5px;
+}
 
-.navbar-avatar {
-    border-radius: 100px;
-    margin: 0 auto;
-    transform: scale(1);
-    transition: transform .4s;
-  }
-  
-  .avatar-title {
-    padding-left: 5px;
-  }
-  
-  .dot {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 8px;
-    height: 8px;
-    border-radius: 100px;
-    background: #00D1B2;
-    transform: scale(1);
-    transition: transform .4s;
-  }
+.dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
+  background: #00d1b2;
+  transform: scale(1);
+  transition: transform 0.4s;
+}

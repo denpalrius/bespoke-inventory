@@ -19,14 +19,18 @@ import {
   faSearch,
   faTruck,
   faAngleDown,
-  faStore
+  faStore,
+  faPlug
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faChartBar,
   faPlusSquare,
   faListAlt,
   faUser,
-  faBell
+  faBell,
+  faTrashAlt,
+  faEdit,
+  faEye
 } from "@fortawesome/free-regular-svg-icons";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
@@ -46,30 +50,17 @@ library.add(
   faUser,
   faBell,
   faAngleDown,
-  faStore
+  faStore,
+  faPlug,
+  faTrashAlt,
+  faEdit,
+  faEye
 );
 
-const materialModules = [
-  MatTableModule,
-  MatPaginatorModule,
-  MatSortModule,
-  MatCheckboxModule,
-  MatProgressBarModule
-];
+const materialModules = [MatTableModule, MatPaginatorModule, MatSortModule, MatCheckboxModule, MatProgressBarModule, MatSortModule];
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FontAwesomeModule,
-    ...materialModules
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule, ...materialModules],
   declarations: [],
-  exports: [
-    FormsModule,
-    ReactiveFormsModule,
-    FontAwesomeModule,
-    ...materialModules
-  ]
+  exports: [FormsModule, ReactiveFormsModule, FontAwesomeModule, ...materialModules]
 })
 export class SharedModule {}
