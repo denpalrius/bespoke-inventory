@@ -15,7 +15,6 @@ jobs:
           command: |
             node --version
             npm --version
-            yarn --version
       # Log the current branch
       - run:
           name: Show current branch
@@ -34,6 +33,10 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
+      # Lint the source code
+      - run:
+          name: Rebuild node-sass
+          command: npm rebuild node-sass
       # Lint the source code
       # - run:
       #     name: Linting
