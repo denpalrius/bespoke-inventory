@@ -5,13 +5,13 @@ export class Address {
     }
   }
 
-  addressId: string;
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
+  id: string;
+  physicalAddress: string;
+  physicalAddress2: string;
   postCode: string;
+  town: string;
+  county: string;
   country: string;
   latCoord: number;
   longCoord: number;
-  buildingDetails: string;
 }

@@ -9,16 +9,8 @@ export class Supplier {
 
   id: string;
   name: string;
-  addressId: string;
-}
-
-export class ISupplier extends Supplier {
-  constructor(initialData: Partial<ISupplier> = null) {
-      super();
-      if (initialData != null) {
-        Object.assign(this, initialData);
-      }
-    }
-
+  description: string;
   address: Address;
+  active: boolean;
 }
+

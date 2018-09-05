@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { Observable, BehaviorSubject } from "rxjs";
-import { Book } from "../../models/book";
-import { BooksService } from "../../services/books.service";
 import { MatTable, MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 import { SelectionModel } from "@angular/cdk/collections";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Book } from "../../models/book";
+import { BooksService } from "../../services/books.service";
+import { tap, catchError } from "rxjs/operators";
 
 @Component({
   selector: "app-manage-inventory",
@@ -33,7 +34,11 @@ export class ManageInventoryComponent implements OnInit, OnDestroy {
 
   isInventoryLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
-  constructor(private readonly booksService: BooksService, private route: ActivatedRoute, private router: Router) {
+  constructor(
+    private readonly booksService: BooksService,
+    private route: ActivatedRoute,
+    private router: Router) {
+
     this.books$ = this.booksService.getAllBooks();
     this.booksDataSource = new MatTableDataSource<Book>();
   }
@@ -45,7 +50,7 @@ export class ManageInventoryComponent implements OnInit, OnDestroy {
     this.initializeMaterialtable();
   }
 
-  ngOnDestroy() {}
+  ngOnDestroy() { }
 
   navigateTo(_route: string) {
     if (_route) {
@@ -54,13 +59,23 @@ export class ManageInventoryComponent implements OnInit, OnDestroy {
   }
 
   initializeMaterialtable() {
-    this.books$.subscribe(_books => {
-      this.booksDataSource = new MatTableDataSource<Book>(_books);
-      this.booksDataSource.paginator = this.paginator;
-      this.booksDataSource.sort = this.sort;
+    this.books$.pipe(
+      tap(_books => {
+        this.booksDataSource = new MatTableDataSource<Book>(_books);
+        this.booksDataSource.paginator = this.paginator;
+        this.booksDataSource.sort = this.sort;
 
-      this.isInventoryLoading$.next(false);
-    });
+        this.isInventoryLoading$.next(false);
+
+        console.log("_books", _books);
+      }),
+      catchError(error => {
+        console.log("Error: ", error);
+        this.isInventoryLoading$.next(false);
+        return null;
+      })
+    ).subscribe();
+
   }
 
   applyFilter(filterValue: string) {

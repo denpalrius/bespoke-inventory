@@ -8,18 +8,10 @@ export class Store {
   }
 
   id: string;
-  addressId: string;
+  name: string;
+  description: string;
   caretaker: string;
-  caretakerDetails: string;
-}
-
-export class IStore extends Store {
-  constructor(initialData: Partial<IStore> = null) {
-    super();
-    if (initialData != null) {
-      Object.assign(this, initialData);
-    }
-  }
-
+  caretakerContacts: string;
   address: Address;
+  active: boolean;
 }
