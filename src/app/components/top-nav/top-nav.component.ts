@@ -6,7 +6,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./top-nav.component.scss"]
 })
 export class TopNavComponent implements OnInit {
+  isNavBarCollapsed: boolean;
+
   constructor() {}
 
   ngOnInit() {}
+
+  toggleNavBar() {
+    this.isNavBarCollapsed = !this.isNavBarCollapsed;
+    console.log(this.isNavBarCollapsed);
+  }
 }

@@ -5,7 +5,16 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatCheckboxModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatListModule,
+  MatIconModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatSnackBarModule,
+  MatButtonModule,
+  MatExpansionModule
 } from "@angular/material";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -20,7 +29,9 @@ import {
   faTruck,
   faAngleDown,
   faStore,
-  faPlug
+  faPlug,
+  faEllipsisH,
+  faEllipsisV
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faChartBar,
@@ -54,13 +65,46 @@ library.add(
   faPlug,
   faTrashAlt,
   faEdit,
-  faEye
+  faEye,
+  faEllipsisH,
+  faEllipsisV
 );
 
-const materialModules = [MatTableModule, MatPaginatorModule, MatSortModule, MatCheckboxModule, MatProgressBarModule, MatSortModule];
+const materialModules = [
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatCheckboxModule,
+  MatProgressBarModule,
+  MatSortModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatListModule,
+  MatIconModule,
+  MatSnackBarModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatExpansionModule,
+  MatListModule,
+];
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, FontAwesomeModule, ...materialModules],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    ...materialModules
+  ],
   declarations: [],
-  exports: [FormsModule, ReactiveFormsModule, FontAwesomeModule, ...materialModules]
+  exports: [
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    ...materialModules
+  ],
+  providers: [
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }
+  ]
 })
-export class SharedModule {}
+export class SharedModule { }

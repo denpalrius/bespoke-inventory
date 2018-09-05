@@ -59,8 +59,6 @@ export class ManageInventoryComponent implements OnInit, OnDestroy {
       this.booksDataSource.paginator = this.paginator;
       this.booksDataSource.sort = this.sort;
 
-      console.log(this.booksDataSource.sort);
-
       this.isInventoryLoading$.next(false);
     });
   }

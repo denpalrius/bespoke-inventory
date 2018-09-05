@@ -9,9 +9,14 @@
   .mat-column-select {
     overflow: initial;
   }
+
+  .actions-wrapper {
+    .action {
+      padding: 0px;
+    }
+  }
 }
 
-.loading-indicator{
-  margin-top:12px;
+.loading-indicator {
+  margin-top: 12px;
 }
-

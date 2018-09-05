@@ -9,6 +9,7 @@ import { Publisher } from "../../../models/publisher";
 import { Author } from "../../../models/author";
 import { BookSecondaryType } from "../../../models/book-secondary-type";
 import { Subscription, Observable, combineLatest } from "rxjs";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "app-add-inventory",
@@ -34,7 +35,8 @@ export class AddInventoryComponent implements OnInit {
     private readonly booksService: BooksService,
     private readonly router: Router,
     private readonly route: ActivatedRoute,
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
+    private readonly snackBar: MatSnackBar
   ) {
     this.bookTypes = new Array<BookType>();
     this.bookSecondaryTypes = new Array<BookSecondaryType>();
@@ -80,6 +82,14 @@ export class AddInventoryComponent implements OnInit {
 
   onSubmit() {
     this.addBook(new Book({ ...this.newBookForm.value }));
+
+    this.openSnackBar("Book saved successfully", "View");
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000
+    });
   }
 
   addBook(_newBook: Book) {

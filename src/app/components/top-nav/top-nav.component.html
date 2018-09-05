@@ -1,6 +1,6 @@
 <nav class="navbar has-shadow is-fixed-top" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item">
+    <a class="navbar-item" (click)="toggleNavBar()">
       <span class="icon">
         <fa-icon [icon]="['fas', 'bars']" size="lg"></fa-icon>
       </span>
@@ -9,7 +9,7 @@
     <a class="navbar-item" routerLink="">
       <img src="../../../assets/images/lean-logo.jpg" alt="">
     </a>
-    <div class="navbar-burger burger" data-target="mainNavbarMenu">
+    <div class="navbar-burger burger" [class.is-active]="isNavBarCollapsed" data-target="mainNavbarMenu">
       <span></span>
       <span></span>
       <span></span>
@@ -17,7 +17,7 @@
 
   </div>
 
-  <div id="mainNavbarMenu" class="navbar-menu">
+  <div id="mainNavbarMenu" class="navbar-menu"  [class.is-active]="isNavBarCollapsed">
     <div class="navbar-start">
 
     </div>

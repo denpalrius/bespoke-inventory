@@ -70,7 +70,37 @@
 
           <!-- {{book.typeId}}  -->
 
-          <p class="buttons">
+
+          <div class="columns actions-wrapper">
+            <div class="column action">
+              <a class="button">
+                <fa-icon [icon]="['far', 'eye']"></fa-icon>
+              </a>
+            </div>
+            <div class="column action">
+              <a class="button">
+                <fa-icon [icon]="['far', 'eye']"></fa-icon>
+              </a>
+            </div>
+            <div class="column action">
+              <a class="button" mat-button [matMenuTriggerFor]="menu">
+                <fa-icon [icon]="['fas', 'ellipsis-v']"></fa-icon>
+              </a>
+            </div>
+          </div>
+
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item class="button">
+              <fa-icon [icon]="['far', 'edit']"></fa-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item class="button">
+              <fa-icon [icon]="['far', 'trash-alt']"></fa-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+
+          <!-- <p class="buttons">
             <a class="button is-white">
               <span class="icon">
                 <fa-icon [icon]="['far', 'eye']"></fa-icon>
@@ -86,7 +116,8 @@
                 <fa-icon [icon]="['far', 'trash-alt']"></fa-icon>
               </span>
             </a>
-          </p>
+          </p> -->
+
         </td>
       </ng-container>
 
