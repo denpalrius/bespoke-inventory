@@ -1,29 +1,40 @@
-.navbar-avatar-wrapper {
-  margin: 0px;
-  line-height: 52px;
-  padding: 0px 5px;
-
-  .navbar-avatar {
-    border-radius: 100px;
-    margin: 0 auto;
-    vertical-align: middle;
-    transform: scale(1);
-    transition: transform 0.4s;
-  }
+.top-toolbar {
+  background: white;
+  height: 56px;
 }
 
-.avatar-title {
-  padding-left: 5px;
+.is-mobile .top-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+  height: 56px;
 }
 
-.dot {
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  width: 8px;
-  height: 8px;
-  border-radius: 100px;
-  background: #00d1b2;
-  transform: scale(1);
-  transition: transform 0.4s;
+.mat-elevation-z3 {
+  position: relative;
+  z-index: 2;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+h1.app-name {
+  margin-left: 16px;
+}
+
+.navbar-avatar {
+  height: 40px;
+  border-radius: 50%;
+  margin: 0px 10px;
+}
+
+.menu-button{
+  min-width: 200px;
+}
+
+.profile-name{
+  font-size: 18px;
 }

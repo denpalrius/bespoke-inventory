@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-top-nav",
@@ -6,14 +6,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./top-nav.component.scss"]
 })
 export class TopNavComponent implements OnInit {
-  isNavBarCollapsed: boolean;
 
-  constructor() {}
+  @Output()
+  toggleSideNav: EventEmitter<any> = new EventEmitter<any>();
 
-  ngOnInit() {}
+  constructor() { }
 
-  toggleNavBar() {
-    this.isNavBarCollapsed = !this.isNavBarCollapsed;
-    console.log(this.isNavBarCollapsed);
-  }
+  ngOnInit() { }
+
 }

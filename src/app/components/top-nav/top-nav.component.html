@@ -1,60 +1,33 @@
-<nav class="navbar has-shadow is-fixed-top" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" (click)="toggleNavBar()">
-      <span class="icon">
-        <fa-icon [icon]="['fas', 'bars']" size="lg"></fa-icon>
-      </span>
-    </a>
+<mat-toolbar class="mat-elevation-z3 top-toolbar">
+  <button mat-icon-button (click)="toggleSideNav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a class="navbar-item" routerLink="">
+    <img src="../../../assets/images/lean-logo.jpg" alt="">
+  </a>
+  <a class="navbar-item" routerLink="">
+    <h1 class="app-name">Book Catalog</h1>
+  </a>
 
-    <a class="navbar-item" routerLink="">
-      <img src="../../../assets/images/lean-logo.jpg" alt="">
-    </a>
-    <div class="navbar-burger burger" [class.is-active]="isNavBarCollapsed" data-target="mainNavbarMenu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+  <span class="fill-remaining-space"></span>
 
-  </div>
+  <app-search></app-search>
 
-  <div id="mainNavbarMenu" class="navbar-menu"  [class.is-active]="isNavBarCollapsed">
-    <div class="navbar-start">
+  <a [matMenuTriggerFor]="profileMenu" class="navbar-item">
+    <img class="navbar-avatar" src="https://avatars1.githubusercontent.com/u/2971971" alt="">
+    <span class="profile-name">Dennis Riungu</span>
+    <mat-icon>arrow_drop_down</mat-icon>
+  </a>
+</mat-toolbar>
 
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item is-pulled-left">
-        <p class="control has-icons-left">
-          <input class="input  is-rounded" type="search" placeholder="search">
-          <span class="icon is-small is-left">
-            <fa-icon [icon]="['fas', 'search']" aria-hidden="true"></fa-icon>
-          </span>
-        </p>
-      </div>
-      <a class="navbar-item">
-        <span class="icon">
-          <fa-icon [icon]="['far', 'bell']" size="lg" aria-hidden="true"></fa-icon>
-        </span>
-        <span class="dot"></span>
-      </a>
-    </div>
-
-    <div class="navbar-item has-dropdown is-hoverable" role="menu">
-      <div class="navbar-avatar-wrapper">
-        <img class="navbar-avatar" src="https://avatars1.githubusercontent.com/u/2971971" alt="">
-      </div>
-      <span class="navbar-link avatar-title">Dennis Riungu</span>
-      <div id="moreDropdown" class="navbar-dropdown ">
-        <a class="navbar-item">
-          <fa-icon [icon]="['far', 'bell']" size="lg" aria-hidden="true"></fa-icon>
-          <a class="dropdown-item"> Profile </a>
-        </a>
-        <hr class="dropdown-divider">
-        <a class="navbar-item">
-          <fa-icon [icon]="['far', 'bell']" size="lg" aria-hidden="true"></fa-icon>
-          <a  class="dropdown-item"> Settings </a>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
+<mat-menu #profileMenu="matMenu" [overlapTrigger]=false yPosition="below" xPosition="before">
+  <button mat-menu-item class="menu-button">
+    <mat-icon>person</mat-icon>
+    <span>Profile</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item class="menu-button">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Log out</span>
+  </button>
+</mat-menu>

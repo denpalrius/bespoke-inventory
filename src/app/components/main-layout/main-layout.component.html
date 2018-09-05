@@ -1,34 +1,12 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <h1 class="example-app-name">Responsive App</h1>
-  </mat-toolbar>
-
-  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
-      </mat-nav-list>
+<div class="main-container" [class.is-mobile]="mobileQuery.matches">
+  <app-top-nav (toggleSideNav)="toggleSideNav()"></app-top-nav>
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+    <mat-sidenav class="app-side-nav" #sideNav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      [fixedTopGap]="56">
+      <app-side-nav (selectNavItem)="navSelect()"></app-side-nav>
     </mat-sidenav>
-
-    <mat-sidenav-content>
+    <mat-sidenav-content class="content-view">
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-<!--
-<app-top-nav></app-top-nav>
-<div class="is-fullheight main-layout">
-  <div class="columns columns-wrapper">
-    <div class="column is-2 is-sidebar-menu is-hidden-mobile side-nav-wrapper">
-      <app-side-nav></app-side-nav>
-    </div>
-    <div class="column content-column">
-      <div class="content content-card">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
-</div> -->

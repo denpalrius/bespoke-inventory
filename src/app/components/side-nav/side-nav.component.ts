@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { ActivatedRoute, Router, NavigationStart } from "@angular/router";
 
 @Component({
@@ -9,7 +9,10 @@ import { ActivatedRoute, Router, NavigationStart } from "@angular/router";
 export class SideNavComponent implements OnInit {
   selectedMenu: string;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  @Output()
+  selectNavItem: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.router.events.subscribe(val => {
@@ -28,6 +31,8 @@ export class SideNavComponent implements OnInit {
   }
 
   onMenuSelect(menu: string) {
+    this.selectNavItem.emit();
+
     if (menu) {
       this.selectedMenu = menu;
       this.router.navigate([this.selectedMenu], { relativeTo: this.route });
