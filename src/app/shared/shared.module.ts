@@ -16,7 +16,9 @@ import {
   MatButtonModule,
   MatExpansionModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatCardModule,
+  MatTooltipModule
 } from "@angular/material";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -90,7 +92,9 @@ const materialModules = [
   MatExpansionModule,
   MatListModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatCardModule,
+  MatTooltipModule
 ];
 @NgModule({
   imports: [

@@ -14,6 +14,8 @@ import { ManageSuppliersComponent } from "./components/manage-suppliers/manage-s
 import { ManageStoresComponent } from "./components/manage-stores/manage-stores.component";
 import { InventoryService } from "./services/inventory.service";
 import { BooksService } from "./services/books.service";
+import { StoresService } from "./services/stores.service";
+import { SuppliersService } from "./services/suppliers.service";
 
 @NgModule({
   imports: [
@@ -31,6 +33,11 @@ import { BooksService } from "./services/books.service";
     ManageStoresComponent,
     AddInventoryComponent
   ],
-  providers: [InventoryService, BooksService]
+  providers: [
+    InventoryService,
+    BooksService,
+    StoresService,
+    SuppliersService
+  ]
 })
-export class InvetoryModule {}
+export class InvetoryModule { }

@@ -1,7 +1,7 @@
 <div class="level">
   <div class="level-left">
     <div class="level-item">
-      <h2> Manage Inventory</h2>
+      <h2 class="section-title"> Manage Inventory</h2>
     </div>
   </div>
   <div class="level-right">
@@ -27,13 +27,13 @@
     </div>
   </div>
 
-
-  <div class="table-wrapper">
-
-    <table mat-table [dataSource]="booksDataSource" matSort matSortActive="name" matSortDirection="asc" matSortDisableClear>
+  <div class="table-wrapper mat-elevation-z8">
+    <table mat-table [dataSource]="booksDataSource" matSort matSortActive="name" matSortDirection="asc"
+      matSortDisableClear>
       <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
-          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()">
           </mat-checkbox>
         </th>
         <td mat-cell *matCellDef="let row">
@@ -64,70 +64,48 @@
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>
-          <p class="has-text-centered">Actions</p>
+          <p>Actions</p>
         </th>
         <td mat-cell *matCellDef="let book">
 
           <!-- {{book.typeId}}  -->
 
-
-          <div class="columns actions-wrapper">
-            <div class="column action">
-              <a class="button">
-                <fa-icon [icon]="['far', 'eye']"></fa-icon>
-              </a>
-            </div>
-            <div class="column action">
-              <a class="button">
-                <fa-icon [icon]="['far', 'eye']"></fa-icon>
-              </a>
-            </div>
-            <div class="column action">
-              <a class="button" mat-button [matMenuTriggerFor]="menu">
-                <fa-icon [icon]="['fas', 'ellipsis-v']"></fa-icon>
-              </a>
-            </div>
+          <div fxLayout="row" fxLayoutAlign="end center">
+            <button mat-icon-button>
+              <mat-icon>remove_red_eye</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Check in">
+              <mat-icon>transit_enterexit</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Check out">
+              <mat-icon>exit_to_app</mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="itemActionsMenu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
           </div>
 
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item class="button">
-              <fa-icon [icon]="['far', 'edit']"></fa-icon>
+          <mat-menu #itemActionsMenu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>edit</mat-icon>
               <span>Edit</span>
             </button>
-            <button mat-menu-item class="button">
-              <fa-icon [icon]="['far', 'trash-alt']"></fa-icon>
+            <button mat-menu-item>
+              <mat-icon>delete_outline</mat-icon>
               <span>Delete</span>
             </button>
           </mat-menu>
 
-          <!-- <p class="buttons">
-            <a class="button is-white">
-              <span class="icon">
-                <fa-icon [icon]="['far', 'eye']"></fa-icon>
-              </span>
-            </a>
-            <a class="button is-white">
-              <span class="icon">
-                <fa-icon [icon]="['far', 'edit']"></fa-icon>
-              </span>
-            </a>
-            <a class="button is-white">
-              <span class="icon is-medium">
-                <fa-icon [icon]="['far', 'trash-alt']"></fa-icon>
-              </span>
-            </a>
-          </p> -->
-
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></tr>
     </table>
+
+    <mat-progress-bar *ngIf="(isInventoryLoading$ | async)" class="loading-indicator" mode="indeterminate"></mat-progress-bar>
+    <mat-paginator *ngIf="!(isInventoryLoading$ | async)" [pageSizeOptions]="[5, 10, 15,30, 50, 100]"
+      showFirstLastButtons></mat-paginator>
   </div>
-
-  <mat-progress-bar *ngIf="(isInventoryLoading$ | async)" class="loading-indicator" mode="indeterminate"></mat-progress-bar>
-
-  <mat-paginator *ngIf="!(isInventoryLoading$ | async)" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
 
 </div>
