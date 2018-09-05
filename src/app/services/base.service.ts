@@ -8,9 +8,12 @@ export class BaseService {
     })
   };
 
+  // TODO: Rectify this
   api = {
-    iventory: "api/inventory",
-    books: "api/books"
+    iventory: "api/iventory",
+    books: "api/books",
+    stores: "api/stores",
+    suppliers: "api/suppliers"
   };
 
   private static handleError(error: any, message: string): Observable<never> {
