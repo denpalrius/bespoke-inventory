@@ -1,6 +1,6 @@
 import { Store } from "./store";
-import { ISupplier } from "./supplier";
 import { TransactionType } from "./consts/transaction-type";
+import { Supplier } from "./supplier";
 
 export class Transaction {
   constructor(initialData: Partial<Transaction> = null) {
@@ -13,22 +13,9 @@ export class Transaction {
   date: Date;
   resourceId: string;
   transactionType: TransactionType;
-  transaQuantity: number;
-  fromStoreId: string;
-  supplierId: string;
-  toStoreId: string;
-  comments: string;
-}
-
-export class ITransaction extends Transaction {
-  constructor(initialData: Partial<ITransaction> = null) {
-    super();
-    if (initialData != null) {
-      Object.assign(this, initialData);
-    }
-  }
-
+  transactionQuantity: number;
   fromStore: Store;
   toStore: Store;
-  supplier: ISupplier;
+  supplier: Supplier;
+  comments: string;
 }

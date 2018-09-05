@@ -1,4 +1,5 @@
 import { Inventory } from "./inventory";
+import { Publisher } from "./publisher";
 
 export class Book extends Inventory {
   constructor(initialData: Partial<Book> = null) {
@@ -11,4 +12,5 @@ export class Book extends Inventory {
   typeId: string;
   authorId: string;
   publisherId: string;
+  publisher: Publisher;
 }
